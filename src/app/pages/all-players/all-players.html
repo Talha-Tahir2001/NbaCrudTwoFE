@@ -1,0 +1,77 @@
+<div
+  class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100"
+>
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Age</th>
+        <th>Position</th>
+        <th>Height</th>
+        <th>College</th>
+        <th>Country</th>
+        <th>Draft Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (playerService.isLoading()) {
+      <tr>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+      </tr>
+      <tr>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+      </tr>
+      <tr>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+        <td><div class="skeleton h-4 w-full"></div></td>
+      </tr>
+      } @else if (playerService.error()) {
+      <tr>
+        <!-- {{
+          playerService.error()?.message
+        }} -->
+        <td class="text-center" colspan="7">Error loading players</td>
+      </tr>
+      } @else { @for (player of playerService.value(); track $index) {
+
+      <tr class="hover:bg-base-300">
+        <th>{{ player.id }}</th>
+        <td>{{ player.firstName }} {{ player.lastName }}</td>
+        <td>{{ player.team }}</td>
+        <td>{{ player.age }}</td>
+        <td>{{ player.position }}</td>
+        <td>{{ player.height }}</td>
+        <td>{{ player.college }}</td>
+        <td>{{ player.country }}</td>
+        <td>{{ player.draftYear }}</td>
+      </tr>
+      } }
+    </tbody>
+  </table>
+</div>
