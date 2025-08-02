@@ -1,0 +1,211 @@
+<main class="relative min-h-screen bg-base-200">
+  <div class="hero min-h-screen px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+    <div
+      class="hero-content flex flex-col items-center w-full max-w-5xl mx-auto"
+    >
+      <div class="text-center mb-8 sm:mb-12">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-content"
+        >
+          Add Player
+        </h1>
+        <p class="mt-4 text-base-content text-base sm:text-lg">
+          Fill in the details below to add a new player to the database.
+        </p>
+      </div>
+
+      <div class="w-full bg-base-100 p-4 sm:p-6 rounded-lg shadow-lg">
+        <form
+          [formGroup]="playerFormGroup"
+          (ngSubmit)="onSubmit()"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+        >
+          <div class="space-y-4">
+            <label
+              for="firstName"
+              class="block text-sm font-medium text-base-content"
+              >First Name</label
+            >
+            <input
+              id="firstName"
+              formControlName="firstName"
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="e.g., LeBron"
+              aria-required="true"
+            />
+            @if (playerFormGroup.get('firstName')?.invalid && playerFormGroup.get('firstName')?.touched) {
+            <p class="text-error">First Name is required</p>
+            }
+          </div>
+
+          <div class="space-y-4">
+            <label
+              for="lastName"
+              class="block text-sm font-medium text-base-content"
+              >Last Name</label
+            >
+            <input
+              id="lastName"
+              formControlName="lastName"
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="e.g., James"
+            />
+            @if (playerFormGroup.get('lastName')?.invalid && playerFormGroup.get('lastName')?.touched) {
+            <p class="text-error">Last Name is required</p>
+            }
+          </div>
+
+          <div class="space-y-4">
+            <label
+              for="team"
+              class="block text-sm font-medium text-base-content"
+              >Team Name</label
+            >
+            <input
+              id="team"
+              formControlName="team"
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="e.g., LA Lakers"
+            />
+            @if (playerFormGroup.get('team')?.invalid && playerFormGroup.get('team')?.touched) {
+            <p class="text-error">Team Name is required</p>
+            }
+          </div>
+
+          <div class="space-y-4">
+            <label for="age" class="block text-sm font-medium text-base-content"
+              >Age</label
+            >
+            <input
+              id="age"
+              formControlName="age"
+              type="number"
+              class="input input-bordered w-full"
+              min="1"
+              max="85"
+              placeholder="e.g., 25"
+              aria-describedby="age-hint"
+            />
+            @if (playerFormGroup.get('age')?.invalid && playerFormGroup.get('age')?.touched) {
+            <p class="text-error">Age is required and must be between 1 and 85</p>
+            }
+          </div>
+
+          <div class="space-y-4">
+            <label
+              for="position"
+              class="block text-sm font-medium text-base-content"
+              >Position</label
+            >
+            <input
+              id="position"
+              formControlName="position"
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="e.g., PG - Point Guard"
+              list="positions"
+            />
+            <datalist id="positions">
+              <option value="PG - Point Guard"></option>
+              <option value="SG - Shooting Guard"></option>
+              <option value="SF - Small Forward"></option>
+              <option value="PF - Power Forward"></option>
+              <option value="C - Center"></option>
+            </datalist>
+            @if (playerFormGroup.get('position')?.invalid && playerFormGroup.get('position')?.touched) {
+            <p class="text-error">Position is required</p>
+            }
+          </div>
+
+          <div class="space-y-4">
+            <label
+              for="height"
+              class="block text-sm font-medium text-base-content"
+              >Height</label
+            >
+            <input
+              id="height"
+              formControlName="height"
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="e.g., 6'9"
+            />
+            @if (playerFormGroup.get('height')?.invalid && playerFormGroup.get('height')?.touched) {
+            <p class="text-error">Height is required</p>
+            }
+          </div>
+
+          <div class="space-y-4">
+            <label
+              for="college"
+              class="block text-sm font-medium text-base-content"
+              >College</label
+            >
+            <input
+              id="college"
+              formControlName="college"
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="e.g., Duke University"
+            />
+            @if (playerFormGroup.get('college')?.invalid && playerFormGroup.get('college')?.touched) {
+            <p class="text-error">College is required</p>
+            }
+          </div>
+
+          <div class="space-y-4">
+            <label
+              for="country"
+              class="block text-sm font-medium text-base-content"
+              >Country</label
+            >
+            <input
+              id="country"
+              formControlName="country"
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="e.g., USA"
+            />
+            @if (playerFormGroup.get('country')?.invalid && playerFormGroup.get('country')?.touched) {
+            <p class="text-error">Country is required</p>
+            }
+          </div>
+
+          <div class="space-y-4">
+            <label
+              for="draftYear"
+              class="block text-sm font-medium text-base-content"
+              >Draft Year</label
+            >
+            <input
+              id="draftYear"
+              formControlName="draftYear"
+              type="date"
+              class="input input-bordered w-full"
+              placeholder="e.g., 2020-06-20"
+            />
+            @if (playerFormGroup.get('draftYear')?.invalid && playerFormGroup.get('draftYear')?.touched) {
+            <p class="text-error">Draft Year is required</p>
+            }            
+          </div>
+
+          <div class="sm:col-span-2 mt-6">
+            <button
+              type="submit"
+              class="btn btn-outline hover:btn-soft btn-primary w-full mt-4"
+              [disabled]="isLoading() || playerFormGroup.invalid"
+            >
+            @if (isLoading()) {
+              <span class="loading loading-spinner"></span>
+            }
+              {{ isLoading() ? "Submitting..." : "Submit" }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
