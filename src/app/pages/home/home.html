@@ -1,0 +1,41 @@
+<main class="absolute top-0 -z-10 h-full w-full">
+  <div class="hero bg-base-200 min-h-screen">
+    <section class="hero-content text-center">
+      <div class="max-w-md">
+        <div
+          class="badge badge-outline badge-primary badge-lg mb-6 px-4 py-3 shadow-md hover:badge-soft transition"
+        >
+          <lucide-angular [img]="ZapIcon" size="16"></lucide-angular>Try it out - Instant NBA Stats!
+        </div>
+        <h1
+          class="text-5xl font-medium tracking-tight text-primary-content drop-shadow-sm"
+        >
+          Slam Dunk Into
+          <span
+            class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+          >
+            NBA Insights
+          </span>
+          🏀
+        </h1>
+
+        <p class="py-6 text-lg text-gray-700 leading-relaxed">
+          Unleash powerful stats, track player performance, and explore team
+          dynamics — all in one slick dashboard. Crafted with ❤️ using ASP.NET
+          Core 8 and Angular 20.
+        </p>
+
+        <button type="button" class="btn btn-primary mr-5">
+          <a routerLink="/players-list">Get Started</a>
+        </button>
+        <button type="button" class="btn btn-primary">
+          <a routerLink="/add-player">Add Player</a>
+        </button>
+        <div class="absolute inset-0 -z-10 h-full w-full" style="background:radial-gradient(125% 125% at 50% 10%,#fff 40%,#63e 100%)"></div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</main>
